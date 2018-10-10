@@ -1,0 +1,6 @@
+Installing a Hadoop cluster typically involves unpacking the software on all the machines in the cluster or installing RPMs.
+Typically one machine in the cluster is designated as the NameNode and another machine the as ResourceManager, exclusively. These are the masters.
+The rest of the machines in the cluster act as both DataNode and NodeManager. These are the slaves.
+This is a specification of the Hadoop FileSystem APIs, which models the contents of a filesystem as a set of paths that are either directories, symbolic links, or files.
+There is surprisingly little prior art in this area. There are multiple specifications of Unix filesystems as a tree of inodes, but nothing public which defines the notion of “Unix filesystem as a conceptual model for data storage access”.
+This specification attempts to do that; to define the Hadoop FileSystem model and APIs so that multiple filesystems can implement the APIs and present a consistent model of their data to applications. It does not attempt to formally specify any of the concurrency behaviors of the filesystems, other than to document the behaviours exhibited by HDFS as these are commonly expected by Hadoop client applications.
