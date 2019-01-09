@@ -20,9 +20,9 @@ public class App {
         System.out.println("dae4dbb77268855c9a42a558d17e2dbd466c584ecb3fe92eb55c967601378a68|USA".getBytes().hashCode());*/
         //System.out.println(Math.abs("dae4dbb77268855c9a42a558d17e2dbd466c584ecb3fe92eb55c967601378a68|USA".hashCode()) % 100+1);
     	
-    	Long l1 = 127l;
-    	Long l2 = 127l;
-    	System.out.println(l1==l2);
+    	Long l1 = 127L;
+    	Long l2 = 127L;
+    	System.out.println(l1.equals(l2));
     }
 
     public void show() {

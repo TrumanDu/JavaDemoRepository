@@ -28,19 +28,21 @@ public interface FactoryMethod {
 }
 
 class ComputerFactory implements FactoryMethod {
+	@Override
     public Product create() {
         return new Computer();
     }
 }
 
 class CarFactory implements FactoryMethod {
-
+	@Override
     public Product create() {
         return new Car();
     }
 }
 
 class PhoneFactory implements FactoryMethod {
+	@Override
     public Product create() {
         return new Phone();
     }

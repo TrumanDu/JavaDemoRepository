@@ -1,11 +1,14 @@
 package com.aibibang.learn.thread;
 
+import java.util.Random;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * @author: Truman
@@ -19,7 +22,13 @@ public class MultiThreadTest {
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        pool = Executors.newFixedThreadPool(10);
+        pool = new ThreadPoolExecutor(10, 10, 0L, TimeUnit.MILLISECONDS,
+				new ArrayBlockingQueue<Runnable>(200), new ThreadFactory() {
+			@Override
+			public Thread newThread(Runnable r) {
+				return new Thread(r, "t_pl_pool_" + r.hashCode());
+			}
+		});
         final Random r = new Random();
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
             final int j = i;

@@ -10,7 +10,7 @@ public class AddCommand implements Command {
     public AddCommand(Receiver receiver) {
         this.receiver = receiver;
     }
-
+    @Override
     public void execute() {
         System.out.println("执行Add");
     }
