@@ -81,7 +81,7 @@ public class SqoopDemo {
 		link.setCreationUser("Truman");
 		MLinkConfig linkConfig = link.getConnectorLinkConfig();
 		// fill in the link config values
-		linkConfig.getStringInput("linkConfig.connectionString").setValue("jdbc:mysql://10.16.238.83/AutoProgramming");
+		linkConfig.getStringInput("linkConfig.connectionString").setValue("jdbc:mysql://192.168.0.83/AutoProgramming");
 		linkConfig.getStringInput("linkConfig.jdbcDriver").setValue("com.mysql.jdbc.Driver");
 		linkConfig.getStringInput("linkConfig.username").setValue("root");
 		linkConfig.getStringInput("linkConfig.password").setValue("123456");
