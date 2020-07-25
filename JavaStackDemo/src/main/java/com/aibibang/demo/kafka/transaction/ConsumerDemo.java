@@ -1,9 +1,10 @@
-package com.aibibang.demo.kafka;
+package com.aibibang.demo.kafka.transaction;
 
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
 
+import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -13,18 +14,17 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
  * @date 2019年4月11日 下午1:33:48
  * @version 1.0
  */
-public class ConsumerForTopic {
-	public static final String TOPIC = "truman_kafka_center1111122222";
+public class ConsumerDemo {
+	public static final String TOPIC = "truman_kafka_center";
 
 	public static void main(String[] args) throws Exception {
 		Properties config = new Properties();
 
 		config.put("group.id", "test11");
-		config.put("bootstrap.servers", "127.0.0.1:8092");
+		config.put("bootstrap.servers", "127.0.0.1:9092");
 		config.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 		config.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-		//config.put(ConsumerConfig.CLIENT_ID_CONFIG, InetAddress.getLocalHost().getHostAddress());
-		
+		config.put(ConsumerConfig.ISOLATION_LEVEL_CONFIG, "read_committed");
 		
 		KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(config);
 		consumer.subscribe(Arrays.asList(TOPIC));
