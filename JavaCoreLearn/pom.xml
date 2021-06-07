@@ -29,7 +29,7 @@
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.1.7</version>
+			<version>1.2.0</version>
 		</dependency>
 		<!-- 是否将自定义jar放入classpath,注释掉不放入 <dependency> <groupId>test</groupId> <artifactId>one</artifactId> 
 			<version>1.0</version> <scope>system</scope> <systemPath>${basedir}/jarResource/JavaCoreLearn-1-SNAPSHOT.jar</systemPath> 
